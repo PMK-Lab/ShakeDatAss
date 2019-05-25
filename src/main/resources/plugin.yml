@@ -1,0 +1,10 @@
+name: 'ShakeDatAss'
+main: fr.hysoria.shakedatass.ShakeDatAss
+version: '1.0-DEV'
+description: 'Twerk baby ! Twerk !'
+author: 'Clem_Fern'
+website: 'https://hysoria.eu/'
+api-version: 1.13
+commands:
+ shakedatass:
+  description: "ShakeDatAss plugin main command"
