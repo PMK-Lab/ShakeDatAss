@@ -10,6 +10,7 @@ import org.bukkit.permissions.Permission;
 
 import fr.hysoria.shakedatass.ShakeDatAss;
 import fr.hysoria.shakedatass.config.GlobalGrowingProperties.Chance;
+import fr.hysoria.shakedatass.config.Plantation.Plantations;
 
 public class Config {
 
