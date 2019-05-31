@@ -4,7 +4,7 @@ version: '1.0-DEV'
 description: 'Twerk baby ! Twerk !'
 author: 'Clem_Fern'
 website: 'https://hysoria.eu/'
-api-version: 1.13
+api-version: 1.12
 commands:
  shakedatass:
   description: "ShakeDatAss plugin main command"

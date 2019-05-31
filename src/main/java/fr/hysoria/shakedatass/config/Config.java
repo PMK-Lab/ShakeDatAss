@@ -47,7 +47,7 @@ public class Config {
 		
 		this.addDefaultConfiguration(CONFIG_PREFIX + "globals.default_need_permission", false);
 		
-		this.addDefaultConfiguration(CONFIG_PREFIX + "globals.default_particle", Particle.CLOUD.name());
+		this.addDefaultConfiguration(CONFIG_PREFIX + "globals.default_particle", Particle.VILLAGER_HAPPY.name());
 		
 		for (Chance defaultChance : GlobalGrowingProperties.Chance.values()) {
 			
@@ -64,9 +64,9 @@ public class Config {
 			
 			this.addDefaultConfiguration(CONFIG_PREFIX + plantationName + ".permission", false);
 			
-			for (Material material : plantation.getMaterials()) {
+			for (Plantation p : plantation.getMaterials()) {
 				
-				String materialName = material.name().toLowerCase();
+				String materialName = p.name();
 				
 				this.addDefaultConfiguration(CONFIG_PREFIX + plantationName + "." + materialName + ".permission",false);
 				
@@ -110,6 +110,12 @@ public class Config {
 
 	public FileConfiguration getYamlConfig() {
 		return yamlConfig;
+	}
+
+	public void reload() {
+		File dataFolder = shakeDatAss.getDataFolder();
+		this.file = new File(dataFolder, "config.yml");
+		 this.yamlConfig = YamlConfiguration.loadConfiguration(this.file);		
 	}
 
 }
