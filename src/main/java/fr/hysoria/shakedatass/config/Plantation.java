@@ -60,7 +60,7 @@ public class Plantation {
 		
 		STEMS(Arrays.asList(new Plantation(Material.MELON_STEM),new Plantation(Material.PUMPKIN_STEM))),
 		
-		RIPED_STEMS(Arrays.asList(new Plantation(Material.MELON_STEM,"riped_melon_stem"),new Plantation(Material.PUMPKIN_STEM,"riped_melon_stem"))),
+		RIPED_STEMS(Arrays.asList(new Plantation(Material.MELON_STEM,"riped_melon_stem"),new Plantation(Material.PUMPKIN_STEM,"riped_pumpkin_stem"))),
 		
 		SAPLINGS(Arrays.asList(new Plantation(Material.SAPLING,0,"oak_sapling"),new Plantation(Material.SAPLING,1,"spruce_sapling"),new Plantation(Material.SAPLING,2,"birch_sapling"),new Plantation(Material.SAPLING,3,"jungle_sapling"),new Plantation(Material.SAPLING,4,"acacia_sapling"),new Plantation(Material.SAPLING,5,"dark_oak_sapling")));
 		
