@@ -2,7 +2,7 @@ package fr.hysoria.shakedatass.config;
 
 import java.io.File;
 import java.io.IOException;
-import org.bukkit.Material;
+
 import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

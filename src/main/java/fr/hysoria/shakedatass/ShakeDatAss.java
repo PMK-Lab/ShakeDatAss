@@ -1,6 +1,7 @@
 package fr.hysoria.shakedatass;
 
 import java.io.IOException;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.hysoria.shakedatass.commands.HelpSDASubCommand;

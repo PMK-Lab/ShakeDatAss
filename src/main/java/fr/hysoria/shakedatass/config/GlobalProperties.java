@@ -9,6 +9,7 @@ import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import fr.hysoria.shakedatass.config.GlobalGrowingProperties.Chance;
+import fr.hysoria.shakedatass.config.Plantation.Plantations;
 
 public class GlobalProperties {
 
@@ -22,6 +23,7 @@ public class GlobalProperties {
 		this.GLOBALS_PLANTATIONS_PERMISSIONS = new HashMap<Plantations, Boolean>();
 		
 		this.GROWABLES = new ArrayList<Properties>();
+		this.RIPED_STEMS = new ArrayList<Properties>();
 
 		globalProperties = this;
 		
@@ -47,6 +49,7 @@ public class GlobalProperties {
 	public HashMap<Plantations, Boolean> GLOBALS_PLANTATIONS_PERMISSIONS;
 	
 	public ArrayList<Properties> GROWABLES;
+	public ArrayList<Properties> RIPED_STEMS;
 
 	////////////////////////////////////////
 	
@@ -124,9 +127,9 @@ public class GlobalProperties {
 
 			this.GLOBALS_PLANTATIONS_PERMISSIONS.put(plantation, plantationPerm);
 
-			for (Material material : plantation.getMaterials()) {
+			for (Plantation p : plantation.getMaterials()) {
 
-				String materialName = material.name().toLowerCase();
+				String materialName = p.name();
 				boolean growablesPerm;
 				
 				if(!config.contains(CONFIG_PREFIX + plantationName + "." + materialName + ".permission")) {
@@ -138,7 +141,7 @@ public class GlobalProperties {
 					growablesPerm = config.getBoolean(CONFIG_PREFIX + plantationName + "." + materialName + ".permission");
 				}
 				
-				Properties prop = new Properties(material, growablesPerm, plantation);
+				Properties prop = new Properties(p, growablesPerm);
 				
 				for (Chance chance : GlobalGrowingProperties.Chance.plantationValues(plantation)) {
 
@@ -204,11 +207,21 @@ public class GlobalProperties {
 					prop.initGrowingChances();
 				}
 
-				this.GROWABLES.add(prop);
+				if(plantation.equals(Plantations.RIPED_STEMS)) {
+					
+					this.RIPED_STEMS.add(prop);
+					
+				}else {
+					
+					this.GROWABLES.add(prop);
+					
+				}
 				
 			}
 
-		}	
+		}
+		
+		Bukkit.getLogger().info("Configuration succesfully loaded !");
 
 	}
 
@@ -217,6 +230,12 @@ public class GlobalProperties {
 		this.GLOBALS_DEFAULT_GROWING_CHANCES.clear();
 		this.GLOBALS_PLANTATIONS_PERMISSIONS.clear();
 		
+		this.RIPED_STEMS.clear();
+		
+		this.GROWABLES.clear();
+		
+		this.config.reload();
+		
 		this.load();
 
 	}
@@ -224,6 +243,17 @@ public class GlobalProperties {
 	public Properties getGrowablesProperties(Material m) {
 		
 		for (Properties prop : this.GROWABLES) {			
+			if(prop.getMaterial().equals(m)) {				
+				return prop;				
+			}			
+		}	
+		return null;
+		
+	}
+	
+	public Properties getRipedGrowablesProperties(Material m) {
+		
+		for (Properties prop : this.RIPED_STEMS) {			
 			if(prop.getMaterial().equals(m)) {				
 				return prop;				
 			}			

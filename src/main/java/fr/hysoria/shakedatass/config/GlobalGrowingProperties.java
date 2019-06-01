@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.bukkit.Particle;
 
+import fr.hysoria.shakedatass.config.Plantation.Plantations;
+
 public class GlobalGrowingProperties{
 	
 	private boolean permission;
@@ -27,11 +29,11 @@ public class GlobalGrowingProperties{
 
 	public static enum Chance {
 
-		NOTHING(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 75), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 75), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 85)),
+		NOTHING(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 50), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 50),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 75), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 75)),
 		
-		ONE_STEP(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 20)),
+		ONE_STEP(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 45),new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 45)),
 		
-		FULLY(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 5), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 25), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 15));
+		FULLY(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 5), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 5),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 25), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 25));
 
 		private HashMap<Plantations, Integer> defaultChances;
 		
