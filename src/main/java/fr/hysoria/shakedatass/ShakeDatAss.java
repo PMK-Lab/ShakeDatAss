@@ -16,9 +16,7 @@ public class ShakeDatAss extends JavaPlugin {
 	private Config config;
 	
 	public GlobalProperties getProperties() {
-		
 		return this.properties;
-		
 	}
 	
 	@Override

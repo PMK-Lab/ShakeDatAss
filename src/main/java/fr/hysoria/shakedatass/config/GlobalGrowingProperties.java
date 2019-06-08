@@ -29,11 +29,11 @@ public class GlobalGrowingProperties{
 
 	public static enum Chance {
 
-		NOTHING(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 50), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 50),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 75), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 75)),
+		NOTHING(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 50), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 50),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 75), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 50)),
 		
 		ONE_STEP(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 45),new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 45)),
 		
-		FULLY(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 5), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 5),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 25), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 25));
+		FULLY(new SimpleEntry<Plantations, Integer>(Plantations.SEEDS, 5), new SimpleEntry<Plantations, Integer>(Plantations.STEMS, 5),new SimpleEntry<Plantations, Integer>(Plantations.RIPED_STEMS, 25), new SimpleEntry<Plantations, Integer>(Plantations.SAPLINGS, 50));
 
 		private HashMap<Plantations, Integer> defaultChances;
 		

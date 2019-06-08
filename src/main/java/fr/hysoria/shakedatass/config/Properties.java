@@ -13,11 +13,16 @@ import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
+import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.material.Crops;
 
 import fr.hysoria.shakedatass.config.GlobalGrowingProperties.Chance;
 import fr.hysoria.shakedatass.config.Plantation.Plantations;
+import net.minecraft.server.v1_12_R1.BlockPosition;
+import net.minecraft.server.v1_12_R1.ItemDye;
+import net.minecraft.server.v1_12_R1.ItemStack;
 
 public class Properties {
 	
@@ -31,6 +36,8 @@ public class Properties {
 		this.permission = p;
 		this.growingChances = this.initGrowingChances();	
 
+		
+		
 	}
 
 	public String name() {
@@ -128,7 +135,12 @@ public class Properties {
 
 		}else if(this.plantation.getType().equals(Plantations.SAPLINGS)) {
 
-			//this.generateTree(block);
+			//YorickReflectionUtil.INSTANCE().applyBoneMeal(block.getLocation());
+			Location loc = block.getLocation();
+			ItemStack nmsStack = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.INK_SACK, 1, (short) 15));				
+					
+			ItemDye.a(nmsStack, ((CraftWorld) player.getWorld()).getHandle(), new BlockPosition(loc.getX(), loc.getY(), loc.getZ()));
+			applyParticle(block, c);
 
 		}else if(this.plantation.getType().equals(Plantations.STEMS)){
 			
